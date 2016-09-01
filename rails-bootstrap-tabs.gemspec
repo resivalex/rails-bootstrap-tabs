@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = s.summary
   s.license     = 'MIT'
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ['MIT-LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir["{app,config,db,lib}/**/*"]
 
   s.add_dependency 'rails', '>= 3.2.11'
 end
