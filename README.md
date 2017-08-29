@@ -31,7 +31,6 @@ or *.erb
   <% end %>
 <% end %>
 ```
-
 expands to
 ```html
 <ul class="nav nav-tabs">
@@ -77,6 +76,51 @@ expands to
     <button>Click!</button>
   </div>
 </div>
+```
+
+## Bootstrap 4
+
+Default bootstrap version is 3. To use bootstrap 4 tabs add file to initializers
+
+```ruby
+# config/initializers/rails_bootstrap_tabs.rb
+
+RailsBootstrapTabs.bootstrap_version = 4
+```
+
+```slim
+= tabs content_class: 'my-padding', fade_effect: true do |c|
+  - c.tab 'Profile', anchor: 'profile'
+    span Hello, user!
+  - c.tab 'New feature', anchor: 'new', active: true
+    button Click!
+```
+expands to
+```html
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link" href="#profile">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a data-toggle="tab" class="nav-link active" href="#new">New feature</a>
+  </li>
+</ul>
+<div class="tab-content my-padding">
+  <div id="profile" class="tab-pane fade in" role="tabpanel">
+    <span>Hello, user!</span>
+  </div>
+  <div id="new" class="tab-pane active fade show" role="tabpanel">
+    <button>Click!</button>
+  </div>
+</div>
+```
+
+To set `fade_effect` option to `true` by default
+```ruby
+# config/initializers/rails_bootstrap_tabs.rb
+
+RailsBootstrapTabs.bootstrap_version = 4
+RailsBootstrapTabs.fade_effect = true
 ```
 ## Usage
 
