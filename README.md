@@ -12,6 +12,7 @@ Take care about existing Bootstrap styles and JavaScript. It's **only** convient
 
 ## Examples
 
+*.slim
 ```slim
 = tabs do |c|
   - c.tab 'Tab 1'
@@ -19,6 +20,18 @@ Take care about existing Bootstrap styles and JavaScript. It's **only** convient
   - c.tab 'Tab 2'
     span Tab content 2
 ```
+or *.erb
+```erb
+<%= tabs do |c| %>
+  <% c.tab 'Tab 1' do %>
+    <span>Tab content 1</span>
+  <% end %>
+  <% c.tab 'Tab 2' do %>
+    <span>Tab content 2</span>
+  <% end %>
+<% end %>
+```
+
 expands to
 ```html
 <ul class="nav nav-tabs">
