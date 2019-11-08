@@ -9,7 +9,7 @@ module RailsBootstrapTabs::Renderers
     def render_tab(tab)
       options = tab.options
       content_tag :li, class: ('active' if options[:active]) do
-        link_to "##{options[:anchor]}", data: { toggle: 'tab' } do
+        link_to "##{options[:anchor]}", class: "#{options[:link_class]}", data: { toggle: 'tab' } do
           yield
         end
       end

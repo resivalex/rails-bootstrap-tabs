@@ -53,7 +53,7 @@ expands to
 This
 ```slim
 = tabs content_class: 'my-padding' do |c|
-  - c.tab 'Profile', anchor: 'profile'
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
     span Hello, user!
   - c.tab 'New feature', anchor: 'new', active: true
     button Click!
@@ -61,7 +61,7 @@ This
 expands to
 ```html
 <ul class="nav nav-tabs">
-  <li class="active">
+  <li class="my-custom-class active">
     <a data-toggle="tab" href="#profile">Profile</a>
   </li>
   <li class="">
@@ -90,7 +90,7 @@ RailsBootstrapTabs.bootstrap_version = 4
 
 ```slim
 = tabs content_class: 'my-padding', fade_effect: true do |c|
-  - c.tab 'Profile', anchor: 'profile'
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
     span Hello, user!
   - c.tab 'New feature', anchor: 'new', active: true
     button Click!
@@ -99,7 +99,7 @@ expands to
 ```html
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a data-toggle="tab" class="nav-link" href="#profile">Profile</a>
+    <a data-toggle="tab" class="nav-link my-custom-class" href="#profile">Profile</a>
   </li>
   <li class="nav-item">
     <a data-toggle="tab" class="nav-link active" href="#new">New feature</a>

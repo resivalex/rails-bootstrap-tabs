@@ -11,7 +11,7 @@ module RailsBootstrapTabs::Renderers
       link_class = 'nav-link'
       link_class << ' active' if options[:active]
       content_tag :li, class: 'nav-item' do
-        link_to "##{options[:anchor]}", data: { toggle: 'tab' }, class: link_class do
+        link_to "##{options[:anchor]}", class: "#{options[:link_class]}", data: { toggle: 'tab' }, class: link_class do
           yield
         end
       end
