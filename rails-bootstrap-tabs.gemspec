@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"]
 
   s.add_dependency 'rails', '>= 3.2.11'
+  s.add_development_dependency 'rspec', '~> 3.6.0', '>= 3.6.0'
 end
