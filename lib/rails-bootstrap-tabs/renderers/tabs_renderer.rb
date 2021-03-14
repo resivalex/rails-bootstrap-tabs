@@ -8,8 +8,9 @@ module RailsBootstrapTabs::Renderers
       @tabs = []
     end
 
-    def rstr
-      (0...8).map { ('a'.ord + rand(26)).chr }.join
+    def rstr(seed)
+      rnd = Random.new(seed)
+      (0...8).map { ('a'.ord + rnd.rand(26)).chr }.join
     end
 
     def render
@@ -20,7 +21,7 @@ module RailsBootstrapTabs::Renderers
 
     def prepare_tabs
       @tabs.each.with_index do |tab, index|
-        tab.options[:anchor] ||= "tab-#{index}-#{rstr}"
+        tab.options[:anchor] ||= "tab-#{index}-#{rstr(index)}"
         tab.options[:fade_effect] ||= RailsBootstrapTabs.fade_effect || @options[:fade_effect]
       end
       active_tab = @tabs.find { |t| t.options[:active] }
