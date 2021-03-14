@@ -7,7 +7,7 @@
 Add it to your Gemfile:
 
 ```ruby
-gem 'rails-bootstrap-tabs', '~> 0.2.3'
+gem 'rails-bootstrap-tabs', '~> 0.2.4'
 ```
 
 Take care about existing Bootstrap styles and JavaScript. It's **only** convient **HTML helper**
@@ -37,10 +37,10 @@ expands to
 ```html
 <ul class="nav nav-tabs">
   <li class="active">
-    <a data-toggle="tab" href="#tab-0-wtytpktm">Tab 1</a>
+    <a data-toggle="tab" href="#tab-0-mpvaddhj">Tab 1</a>
   </li>
   <li>
-    <a data-toggle="tab" href="#tab-1-eesnydho">Tab 2</a>
+    <a data-toggle="tab" href="#tab-1-flmijlfp">Tab 2</a>
   </li>
 </ul>
 <div class="tab-content">

@@ -10,3 +10,12 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
+
+def mock_template
+  result = instance_double(ActionView::Base)
+  result.extend(ActionView::Helpers::TagHelper)
+  result.extend(ActionView::Context)
+  result.extend(ActionView::Helpers::UrlHelper)
+  result.extend(RailsBootstrapTabs::Helpers::TabsHelper)
+  result
+end
