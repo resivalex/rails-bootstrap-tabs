@@ -55,7 +55,7 @@ describe RailsBootstrapTabs::Helpers::TabsHelper do
           end
         end
         expect(result).to eq "<ul class=\"nav nav-tabs\"><li class=\"nav-item\"><a data-toggle=\"tab\" class=\"nav-link my-custom-class\" href=\"#profile\">Profile</a></li>\n" +
-                               "<li class=\"nav-item active\"><a data-toggle=\"tab\" class=\"nav-link active\" href=\"#new\">New feature</a></li></ul><div class=\"tab-content my-padding\"><div id=\"profile\" class=\"tab-pane fade in\" role=\"tabpanel\"><span>Hello, user!</span></div>\n" +
+                               "<li class=\"nav-item\"><a data-toggle=\"tab\" class=\"nav-link active\" href=\"#new\">New feature</a></li></ul><div class=\"tab-content my-padding\"><div id=\"profile\" class=\"tab-pane fade in\" role=\"tabpanel\"><span>Hello, user!</span></div>\n" +
                                "<div id=\"new\" class=\"tab-pane active fade show\" role=\"tabpanel\"><button>Click!</button></div></div>"
       end
     end

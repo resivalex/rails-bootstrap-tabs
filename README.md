@@ -7,7 +7,7 @@
 Add it to your Gemfile:
 
 ```ruby
-gem 'rails-bootstrap-tabs', '~> 0.2.6'
+gem 'rails-bootstrap-tabs', '~> 0.2.5'
 ```
 
 Take care about existing Bootstrap styles and JavaScript. It's **only** convient **HTML helper**
@@ -102,7 +102,7 @@ expands to
   <li class="nav-item">
     <a data-toggle="tab" class="nav-link my-custom-class" href="#profile">Profile</a>
   </li>
-  <li class="nav-item active">
+  <li class="nav-item">
     <a data-toggle="tab" class="nav-link active" href="#new">New feature</a>
   </li>
 </ul>
