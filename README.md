@@ -129,6 +129,9 @@ expands to
   <a data-toggle="tab" href="#profile" class="nav-link my-custom-class">Profile</a>
   <a data-toggle="tab" href="#new" class="nav-link active">New feature</a>
 </nav>
+<div class="tab-content my-padding">
+    ...
+</div>
 ```
 
 To set `fade_effect` or `nav_markup` to `true` by default
