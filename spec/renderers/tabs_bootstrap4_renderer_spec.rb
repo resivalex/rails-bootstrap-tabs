@@ -31,10 +31,8 @@ describe RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer do
 
   describe '#render_panes_wrapper' do
     context 'wrapper_markup is nav' do
-      let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer.new(template, { nav_markup: true } ) }
-
       it 'renders nav wrapper' do
-        tab = double(options: { anchor: 'anch', link_class: 'lnk', active: true })
+        tab = double(options: { anchor: 'anch', link_class: 'lnk', active: true, nav_markup: true })
         expect(renderer.render_tab(tab) { '[title]' }).to eq '<a data-toggle="tab" class="nav-link active lnk" href="#anch">[title]</a>'
       end
     end

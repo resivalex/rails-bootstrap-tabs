@@ -22,7 +22,20 @@ module RailsBootstrapTabs::Renderers
     def prepare_tabs
       @tabs.each.with_index do |tab, index|
         tab.options[:anchor] ||= "tab-#{index}-#{rstr(index)}"
-        tab.options[:fade_effect] ||= RailsBootstrapTabs.fade_effect || @options[:fade_effect]
+        if tab.options[:fade_effect].nil?
+          if @options.key?(:fade_effect)
+            tab.options[:fade_effect] = @options[:fade_effect]
+          else
+            tab.options[:fade_effect] = RailsBootstrapTabs.fade_effect
+          end
+        end
+        if tab.options[:nav_markup].nil?
+          if @options.key?(:nav_markup)
+            tab.options[:nav_markup] = @options[:nav_markup]
+          else
+            tab.options[:nav_markup] = RailsBootstrapTabs.nav_markup
+          end
+        end
       end
       active_tab = @tabs.find { |t| t.options[:active] }
       active_tab ||= @tabs.first
