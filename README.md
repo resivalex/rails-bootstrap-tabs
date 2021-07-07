@@ -7,7 +7,7 @@
 Add it to your Gemfile:
 
 ```ruby
-gem 'rails-bootstrap-tabs', '~> 0.2.5'
+gem 'rails-bootstrap-tabs', '~> 0.2.7'
 ```
 
 Take care about existing Bootstrap styles and JavaScript. It's **only** convient **HTML helper**
