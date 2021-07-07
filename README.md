@@ -1,6 +1,6 @@
 # Rails Bootstrap Tabs
 
-[![Build Status](https://travis-ci.org/resivalex/rails-bootstrap-tabs.svg?branch=master)](https://travis-ci.org/resivalex/rails-bootstrap-tabs)
+[![Build Status](https://travis-ci.com/resivalex/rails-bootstrap-tabs.svg?branch=master)](https://travis-ci.org/resivalex/rails-bootstrap-tabs)
 
 ## Installation
 
