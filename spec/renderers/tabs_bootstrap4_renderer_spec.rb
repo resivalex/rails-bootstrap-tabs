@@ -25,7 +25,7 @@ describe RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer do
   describe '#render_tab' do
     it 'renders tab' do
       tab = double(options: { anchor: 'anch', link_class: 'lnk', active: true })
-      expect(renderer.render_tab(tab) { '[title]' }).to eq '<li class="nav-item"><a data-toggle="tab" class="nav-link active lnk" href="#anch">[title]</a></li>'
+      expect(renderer.render_tab(tab) { '[title]' }).to eq '<li class="nav-item active"><a data-toggle="tab" class="nav-link active lnk" href="#anch">[title]</a></li>'
     end
   end
 
@@ -40,7 +40,7 @@ describe RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer do
     context 'wrapper_markup is NOT nav' do
       it 'renders tab' do
         tab = double(options: { anchor: 'anch', link_class: 'lnk', active: true })
-        expect(renderer.render_tab(tab) { '[title]' }).to eq '<li class="nav-item"><a data-toggle="tab" class="nav-link active lnk" href="#anch">[title]</a></li>'
+        expect(renderer.render_tab(tab) { '[title]' }).to eq '<li class="nav-item active"><a data-toggle="tab" class="nav-link active lnk" href="#anch">[title]</a></li>'
       end
     end
   end
