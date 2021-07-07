@@ -80,6 +80,19 @@ expands to
 </div>
 ```
 
+Also, `nav` markup can be used instead of `ul` `li`
+```slim
+= tabs(nav_markup: true) content_class: 'my-padding' do |c|
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
+  - c.tab 'New feature', anchor: 'new', active: true
+```
+expands to
+```html
+<nav class="nav nav-tabs">
+  <a data-toggle="tab" href="#profile" class="nav-link my-custom-class">Profile</a>
+  <a data-toggle="tab" href="#new" class="nav-link active">New feature</a>
+</nav>
+```
 ## Bootstrap 4
 
 Default bootstrap version is 3. To use bootstrap 4 tabs add file to initializers

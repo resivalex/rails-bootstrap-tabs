@@ -7,8 +7,18 @@ describe RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer do
   let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer.new(template) }
 
   describe '#render_tabs_wrapper' do
-    it 'renders wrapper' do
-      expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<ul class="nav nav-tabs">[tabs_content]</ul>'
+    context 'wrapper_markup is nav' do
+      let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer.new(template, { nav_markup: true } ) }
+
+      it 'renders nav wrapper' do
+        expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<nav class="nav nav-tabs">[tabs_content]</nav>'
+      end
+    end
+
+    context 'wrapper_markup is NOT nav' do
+      it 'renders ul wrapper' do
+        expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<ul class="nav nav-tabs">[tabs_content]</ul>'
+      end
     end
   end
 
@@ -20,8 +30,20 @@ describe RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer do
   end
 
   describe '#render_panes_wrapper' do
-    it 'renders panes wrapper' do
-      expect(renderer.render_panes_wrapper(content_class: 'cnt') { '[panes]' }).to eq '<div class="tab-content cnt">[panes]</div>'
+    context 'wrapper_markup is nav' do
+      let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer.new(template, { nav_markup: true } ) }
+
+      it 'renders nav wrapper' do
+        tab = double(options: { anchor: 'anch', link_class: 'lnk', active: true })
+        expect(renderer.render_tab(tab) { '[title]' }).to eq '<a data-toggle="tab" class="nav-link active lnk" href="#anch">[title]</a>'
+      end
+    end
+
+    context 'wrapper_markup is NOT nav' do
+      it 'renders tab' do
+        tab = double(options: { anchor: 'anch', link_class: 'lnk', active: true })
+        expect(renderer.render_tab(tab) { '[title]' }).to eq '<li class="nav-item"><a data-toggle="tab" class="nav-link active lnk" href="#anch">[title]</a></li>'
+      end
     end
   end
 
