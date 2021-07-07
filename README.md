@@ -7,7 +7,7 @@
 Add it to your Gemfile:
 
 ```ruby
-gem 'rails-bootstrap-tabs', '~> 0.2.4'
+gem 'rails-bootstrap-tabs', '~> 0.2.5'
 ```
 
 Take care about existing Bootstrap styles and JavaScript. It's **only** convient **HTML helper**
@@ -79,20 +79,6 @@ expands to
   </div>
 </div>
 ```
-
-Also, `nav` markup can be used instead of `ul` `li`
-```slim
-= tabs(nav_markup: true) content_class: 'my-padding' do |c|
-  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
-  - c.tab 'New feature', anchor: 'new', active: true
-```
-expands to
-```html
-<nav class="nav nav-tabs">
-  <a data-toggle="tab" href="#profile" class="nav-link my-custom-class">Profile</a>
-  <a data-toggle="tab" href="#new" class="nav-link active">New feature</a>
-</nav>
-```
 ## Bootstrap 4
 
 Default bootstrap version is 3. To use bootstrap 4 tabs add file to initializers
@@ -130,12 +116,28 @@ expands to
 </div>
 ```
 
-To set `fade_effect` option to `true` by default
+Also, `nav` markup can be used instead of `ul` & `li`
+
+```slim
+= tabs content_class: 'my-padding', nav_markup: true do |c|
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
+  - c.tab 'New feature', anchor: 'new', active: true
+```
+expands to
+```html
+<nav class="nav nav-tabs">
+  <a data-toggle="tab" href="#profile" class="nav-link my-custom-class">Profile</a>
+  <a data-toggle="tab" href="#new" class="nav-link active">New feature</a>
+</nav>
+```
+
+To set `fade_effect` or `nav_markup` to `true` by default
 ```ruby
 # config/initializers/rails_bootstrap_tabs.rb
 
 RailsBootstrapTabs.bootstrap_version = 4
 RailsBootstrapTabs.fade_effect = true
+RailsBootstrapTabs.nav_markup = true
 ```
 ## Usage
 
