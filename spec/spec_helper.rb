@@ -16,6 +16,7 @@ def mock_template
   result.extend(ActionView::Helpers::TagHelper)
   result.extend(ActionView::Context)
   result.extend(ActionView::Helpers::UrlHelper)
+  result.extend(ActionView::Helpers::FormTagHelper)
   result.extend(RailsBootstrapTabs::Helpers::TabsHelper)
   result
 end

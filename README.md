@@ -7,7 +7,7 @@
 Add it to your Gemfile:
 
 ```ruby
-gem 'rails-bootstrap-tabs', '~> 0.2.7'
+gem 'rails-bootstrap-tabs', '~> 0.3.0'
 ```
 
 Take care about existing Bootstrap styles and JavaScript. It's **only** convient **HTML helper**
@@ -79,6 +79,7 @@ expands to
   </div>
 </div>
 ```
+
 ## Bootstrap 4
 
 Default bootstrap version is 3. To use bootstrap 4 tabs add file to initializers
@@ -134,14 +135,73 @@ expands to
 </div>
 ```
 
-To set `fade_effect` or `nav_markup` to `true` by default
+## Bootstrap 5
+
 ```ruby
 # config/initializers/rails_bootstrap_tabs.rb
 
-RailsBootstrapTabs.bootstrap_version = 4
+RailsBootstrapTabs.bootstrap_version = 5
+```
+
+```slim
+= tabs content_class: 'my-padding', fade_effect: true do |c|
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
+    span Hello, user!
+  - c.tab 'New feature', anchor: 'new', active: true
+    button Click!
+```
+expands to
+```html
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button name="button" type="submit" data-bs-toggle="tab" data-bs-target="#profile" class="nav-link my-custom-class" role="tab">Profile</button></li>
+  <li class="nav-item" role="presentation">
+    <button name="button" type="submit" data-bs-toggle="tab" data-bs-target="#new" class="nav-link active" role="tab">New feature</button>
+  </li>
+</ul>
+<div class="tab-content my-padding">
+  <div id="profile" class="tab-pane fade in" role="tabpanel">
+    <span>Hello, user!</span>
+  </div>
+  <div id="new" class="tab-pane active fade show" role="tabpanel">
+    <button>Click!</button>
+  </div>
+</div>
+```
+
+Also, `nav` markup can be used instead of `ul` & `li`
+
+```slim
+= tabs content_class: 'my-padding', nav_markup: true do |c|
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
+  - c.tab 'New feature', anchor: 'new', active: true
+```
+expands to
+```html
+<nav>
+  <div class="nav nav-tabs" role="tablist">
+    <button name="button" type="submit" data-bs-toggle="tab" data-bs-target="#profile" class="nav-link my-custom-class" role="tab">Profile</button>
+    <button name="button" type="submit" data-bs-toggle="tab" data-bs-target="#new" class="nav-link active" role="tab">New feature</button>
+  </div>
+</nav>
+<div class="tab-content my-padding">
+    ...
+</div>
+```
+
+## Configuration
+
+`fade_effect` and `nav_markup` are set to `false` by default
+
+You can change default values in a configuration file
+```ruby
+# config/initializers/rails_bootstrap_tabs.rb
+
+RailsBootstrapTabs.bootstrap_version = 5
 RailsBootstrapTabs.fade_effect = true
 RailsBootstrapTabs.nav_markup = true
 ```
+
 ## Usage
 
 See examples

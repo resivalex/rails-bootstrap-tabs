@@ -5,6 +5,8 @@ module RailsBootstrapTabs::Helpers
                               RailsBootstrapTabs::Renderers::TabsBootstrap3Renderer
                             elsif RailsBootstrapTabs.bootstrap_version == 4
                               RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer
+                            elsif RailsBootstrapTabs.bootstrap_version == 5
+                              RailsBootstrapTabs::Renderers::TabsBootstrap5Renderer
                             else
                               raise "Unknown bootstrap version: #{RailsBootstrapTabs.bootstrap_version}!"
                             end
