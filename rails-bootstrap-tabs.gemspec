@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ['resivalex@gmail.com']
   s.homepage    = 'https://github.com/resivalex/rails-bootstrap-tabs'
   s.summary     = 'A Rails plugin to build bootstrap tabs'
-  s.description = 'It reduce starting efforts to make Bootstrap tabs work'
+  s.description = 'It reduces starting efforts to make Bootstrap tabs work'
   s.license     = 'MIT'
 
   s.files = Dir["{app,config,db,lib}/**/*"]
