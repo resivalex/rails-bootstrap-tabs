@@ -9,11 +9,11 @@ Gem::Specification.new do |s|
   s.email       = ['resivalex@gmail.com']
   s.homepage    = 'https://github.com/resivalex/rails-bootstrap-tabs'
   s.summary     = 'A Rails plugin to build bootstrap tabs'
-  s.description = s.summary
+  s.description = 'It reduces starting efforts to make Bootstrap tabs work'
   s.license     = 'MIT'
 
   s.files = Dir["{app,config,db,lib}/**/*"]
 
-  s.add_dependency 'rails', '>= 3.2.11'
+  s.add_runtime_dependency 'rails', '>= 3.2.11'
   s.add_development_dependency 'rspec', '~> 3.6.0', '>= 3.6.0'
 end
