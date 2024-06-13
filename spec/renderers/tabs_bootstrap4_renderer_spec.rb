@@ -4,20 +4,22 @@ require 'rails-bootstrap-tabs'
 
 describe RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer do
   let(:template) { mock_template }
-  let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer.new(template) }
+  let(:args) { { nav_attributes: { 'aria-label': 'Accessibility' } } }
+  let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer.new(template, args) }
 
   describe '#render_tabs_wrapper' do
     context 'wrapper_markup is nav' do
-      let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer.new(template, { nav_markup: true } ) }
+      let(:args) { { nav_markup: true, nav_attributes: { 'aria-label': 'Accessibility' } } }
+      let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap4Renderer.new(template, args) }
 
       it 'renders nav wrapper' do
-        expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<nav class="nav nav-tabs">[tabs_content]</nav>'
+        expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<nav class="nav nav-tabs" aria-label="Accessibility">[tabs_content]</nav>'
       end
     end
 
     context 'wrapper_markup is NOT nav' do
       it 'renders ul wrapper' do
-        expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<ul class="nav nav-tabs">[tabs_content]</ul>'
+        expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<ul class="nav nav-tabs" aria-label="Accessibility">[tabs_content]</ul>'
       end
     end
   end

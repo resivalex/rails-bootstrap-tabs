@@ -4,11 +4,12 @@ require 'rails-bootstrap-tabs'
 
 describe RailsBootstrapTabs::Renderers::TabsBootstrap3Renderer do
   let(:template) { mock_template }
-  let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap3Renderer.new(template) }
+  let(:args) { { nav_attributes: { 'aria-label': 'Accessibility' } } }
+  let(:renderer) { RailsBootstrapTabs::Renderers::TabsBootstrap3Renderer.new(template, args) }
 
   describe '#render_tabs_wrapper' do
     it 'renders wrapper' do
-      expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<ul class="nav nav-tabs">[tabs_content]</ul>'
+      expect(renderer.render_tabs_wrapper { '[tabs_content]' }).to eq '<ul class="nav nav-tabs" aria-label="Accessibility">[tabs_content]</ul>'
     end
   end
 

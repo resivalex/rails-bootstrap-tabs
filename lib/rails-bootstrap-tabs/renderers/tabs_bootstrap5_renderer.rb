@@ -1,16 +1,15 @@
 module RailsBootstrapTabs::Renderers
   class TabsBootstrap5Renderer < TabsRenderer
-    def render_tabs_wrapper
+    def render_tabs_wrapper(&block)
+      tag_attributes = { class: 'nav nav-tabs', role: 'tablist' }
+      tag_attributes.merge!(@options[:nav_attributes]) if @options[:nav_attributes]
+
       if @options[:nav_markup]
         content_tag :nav do
-          content_tag :div, class: 'nav nav-tabs', role: 'tablist' do
-            yield
-          end
+          content_tag :div, tag_attributes, &block
         end
       else
-        content_tag :ul, class: 'nav nav-tabs', role: 'tablist' do
-          yield
-        end
+        content_tag :ul, tag_attributes, &block
       end
     end
 

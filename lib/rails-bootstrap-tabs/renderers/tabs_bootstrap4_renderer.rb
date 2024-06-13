@@ -1,15 +1,9 @@
 module RailsBootstrapTabs::Renderers
   class TabsBootstrap4Renderer < TabsRenderer
-    def render_tabs_wrapper
-      if @options[:nav_markup]
-        content_tag :nav, class: 'nav nav-tabs' do
-          yield
-        end
-      else
-        content_tag :ul, class: 'nav nav-tabs' do
-          yield
-        end
-      end
+    def render_tabs_wrapper(&block)
+      tag_attributes = { class: 'nav nav-tabs' }
+      tag_attributes.merge!(@options[:nav_attributes]) if @options[:nav_attributes]
+      content_tag (@options[:nav_markup] ? :nav : :ul), tag_attributes, &block
     end
 
     def render_tab(tab)
