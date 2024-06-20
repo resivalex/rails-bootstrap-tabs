@@ -1,9 +1,9 @@
 module RailsBootstrapTabs::Renderers
   class TabsBootstrap3Renderer < TabsRenderer
-    def render_tabs_wrapper
-      content_tag :ul, class: 'nav nav-tabs' do
-        yield
-      end
+    def render_tabs_wrapper(&block)
+      tag_attributes = { class: 'nav nav-tabs' }
+      tag_attributes.merge!(@options[:nav_attributes]) if @options[:nav_attributes]
+      content_tag :ul, tag_attributes, &block
     end
 
     def render_tab(tab)

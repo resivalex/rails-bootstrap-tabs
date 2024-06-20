@@ -80,6 +80,22 @@ expands to
 </div>
 ```
 
+Also, custom attributes can added to the `ul`
+
+```slim
+= tabs nav_attributes: { 'aria-label': 'Accessibility' } do |c|
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
+  - c.tab 'New feature', anchor: 'new', active: true
+```
+expands to
+```html
+<ul class="nav nav-tabs" aria-label="Accessibility">
+    <li class="my-custom-class active">
+        <a data-toggle="tab" href="#profile">Profile</a>
+    </li>
+...
+```
+
 ## Bootstrap 4
 
 Default bootstrap version is 3. To use bootstrap 4 tabs add file to initializers
@@ -134,6 +150,21 @@ expands to
     ...
 </div>
 ```
+Also, custom attributes can added to the `nav` or `ul`
+
+```slim
+= tabs nav_attributes: { 'aria-label': 'Accessibility' } do |c|
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
+  - c.tab 'New feature', anchor: 'new', active: true
+```
+expands to
+```html
+<ul class="nav nav-tabs" aria-label="Accessibility">
+    <li class="nav-item">
+        <a data-toggle="tab" class="nav-link my-custom-class" href="#profile">Profile</a>
+    </li>
+...
+```
 
 ## Bootstrap 5
 
@@ -187,6 +218,20 @@ expands to
 <div class="tab-content my-padding">
     ...
 </div>
+```
+Also, custom attributes can added to the `nav` or `ul`
+
+```slim
+= tabs nav_attributes: { 'aria-label': 'Accessibility' } do |c|
+  - c.tab 'Profile', anchor: 'profile', link_class: 'my-custom-class'
+  - c.tab 'New feature', anchor: 'new', active: true
+```
+expands to
+```html
+<ul class="nav nav-tabs" role="tablist" aria-label="Accessibility"></ul>
+    <li class="nav-item" role="presentation">
+        <button name="button" type="submit" data-bs-toggle="tab" data-bs-target="#profile" class="nav-link my-custom-class" role="tab">Profile</button></li>
+...
 ```
 
 ## Configuration
