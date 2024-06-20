@@ -36,9 +36,9 @@ describe RailsBootstrapTabs::Helpers::TabsHelper do
           '<button>Click!</button>'.html_safe
         end
       end
-      expect(result).to eq "<ul class=\"nav nav-tabs\"><li><a class=\"my-custom-class\" data-toggle=\"tab\" href=\"#profile\">Profile</a></li>\n" +
-                             "<li class=\"active\"><a data-toggle=\"tab\" href=\"#new\">New feature</a></li></ul><div class=\"tab-content my-padding\"><div id=\"profile\" class=\"tab-pane\"><span>Hello, user!</span></div>\n" +
-                             "<div id=\"new\" class=\"tab-pane active\"><button>Click!</button></div></div>"
+      expect(result).to eq '<ul class="nav nav-tabs"><li><a class="my-custom-class" data-toggle="tab" href="#profile">Profile</a></li>' + "\n" +
+                             '<li class="active"><a data-toggle="tab" href="#new">New feature</a></li></ul><div class="tab-content my-padding"><div id="profile" class="tab-pane"><span>Hello, user!</span></div>' + "\n" +
+                             '<div id="new" class="tab-pane active"><button>Click!</button></div></div>'
     end
 
     context 'bootstrap 4' do
@@ -54,9 +54,9 @@ describe RailsBootstrapTabs::Helpers::TabsHelper do
             '<button>Click!</button>'.html_safe
           end
         end
-        expect(result).to eq "<ul class=\"nav nav-tabs\"><li class=\"nav-item\"><a data-toggle=\"tab\" class=\"nav-link my-custom-class\" href=\"#profile\">Profile</a></li>\n" +
-                               "<li class=\"nav-item\"><a data-toggle=\"tab\" class=\"nav-link active\" href=\"#new\">New feature</a></li></ul><div class=\"tab-content my-padding\"><div id=\"profile\" class=\"tab-pane fade in\" role=\"tabpanel\"><span>Hello, user!</span></div>\n" +
-                               "<div id=\"new\" class=\"tab-pane active fade show\" role=\"tabpanel\"><button>Click!</button></div></div>"
+        expect(result).to eq '<ul class="nav nav-tabs"><li class="nav-item"><a data-toggle="tab" class="nav-link my-custom-class" href="#profile">Profile</a></li>' + "\n" +
+                               '<li class="nav-item"><a data-toggle="tab" class="nav-link active" href="#new">New feature</a></li></ul><div class="tab-content my-padding"><div id="profile" class="tab-pane fade in" role="tabpanel"><span>Hello, user!</span></div>' + "\n" +
+                               '<div id="new" class="tab-pane active fade show" role="tabpanel"><button>Click!</button></div></div>'
       end
     end
   end
